@@ -23,9 +23,9 @@
   - Trade upfront expense for variable expense
   - Stop spending money to run and maintain data centers
   - Stop guessing capacity
-  - Benefit from massive economies of scale
+  - Benefit from massive economies of scale (Benefit from customers aggregated usage, with prices drops per unit used)
   - Increase speed and agility
-  - Go global in minutes
+  - Go global in minutes (AWS global infrastructure available at 31 locations globally)
 
 ## Computing in the cloud
 - **Amazon Elastic Compute Cloud (Amazon EC2)**
@@ -116,16 +116,21 @@
 - **AWS Region**
   - When determining the right Region for your services, data, and applications, consider the following four business factors:
     - Compliance with data governance and legal requirements
-    - Proximity to your customers
+    - Proximity to your customers (you should select a region as close to your customers as possible)
     - Available Services within a Region
-    - Pricing
+    - Pricing (cost of services varies from region to region)
 - **Availability Zones**
-  - An Availability Zone is a single data center or a group of data centers within a Region.
+  - An Availability Zone is a single data center or a group of data centers with redundant power, networking & connectivity within a Region.
   - Availability Zones are located tens of miles apart from each other.
   - This is close enough to have low latency (the time between when content requested and received) between Availability Zones.
   - However, if a disaster occurs in one part of the Region, they are distant enough to reduce the chance that multiple Availability Zones are affected.
 - **Edge locations**
   - An edge location is a site that Amazon CloudFront uses to store cached copies of your content closer to your customers for faster delivery.
+- **Local Zones**
+  - Local zones are extensions of an AWS region.
+  - Locale zones allow you to select AWS services like compute and storage closer to the end users.
+  - Local zones provide high-bandwidth & secure connection to parent AWS region.
+  - Great for low latency applications like real-time gaming, live-streaming & virtual workstations for the local city.
 
 ## How to provision AWS resources
 - **AWS Management Console**
@@ -147,6 +152,9 @@
   - In this isolated section, you can launch resources in a virtual network that you define.
   - Within a virtual private cloud (VPC), you can organize your resources into subnets.
   - A subnet is a section of a VPC that can contain resources such as Amazon EC2 instances.
+  - A subnet resides within a single availability zone.
+  - Subnets can be made public or private to allow external access to resources within them using Internet Gateways & NAT Gateways.
+  - Subnets when first created are private and not exposed to the internet.
 
 - **Internet gateway**
   - An internet gateway is a connection between a VPC and the internet.
@@ -155,16 +163,28 @@
       - Here is an image that demonstrates the Internet Gateway <br/>
         ![alt AWS Internet Gateway](./img/aws-internet-gateway.png "AWS Internet Gateway")
 
+- **NAT Gateway**
+  - NAT gateway allow subnets to talk to the internet but connections must be initiated from within the VPC.
+
 - **Virtual Private Gateway**
   - To access private resources in a VPC, you can use a virtual private gateway.
-  - A virtual private gateway enables you to establish a virtual private network (VPN) connection between your VPC and a private network, such as an on-premises data center or internal corporate network. A virtual private gateway allows traffic into the VPC only if it is coming from an approved network.
+  - A virtual private gateway enables you to establish a virtual private network (VPN) connection between your VPC and a private network, such as an on-premises data center or internal corporate network.
+  - A virtual private gateway allows traffic into the VPC only if it is coming from an approved network.
   - Check the below image for visual demonstration <br/>
     ![alt AWS Virtual Private Gateway](./img/aws-virtual-gateway.png "AWS Virtual Internet Gateway")
+- **Firewalls**
+  - There are 2 types of firewalls: Stateless & Stateful
+  - Stateless firewalls require traffic to be explicitly permitted inbound & outbound.
+  - Stateful firewalls are intelligent firewalls that track requests and allow responses.
+  - Network ACLs filter traffic entering & leaving a subnet.
+  - Network ACLs are stateless firewalls.
+  - Security Groups act as firewalls for individual resources such as EC2, NICs, and other network objects.
+  - Security Groups are stateful firewalls.
 
 - **AWS Direct Connect**
   - A service that enables you to establish a dedicated private connection between your data center and a VPC.  
     - Check the below image for visual demonstration <br/>
-      ![alt AWS Direct Connect](./img/aws-direct-connect.png "AWS AWS Direct Connect")
+      ![alt AWS Direct Connect](./img/aws-direct-connect.png "AWS Direct Connect")
 
 - **AWS Route 53**
   - It's a DNS web service. It gives developers and businesses a reliable way to route end users to internet applications hosted in AWS.
@@ -544,9 +564,9 @@
     - Amazon Lightsail (a service that enables you to run virtual private servers) offers 750 free hours of usage over a 30-day period.
 - **AWS pricing concepts**
   - AWS offers a range of cloud computing services with pay-as-you-go pricing:
-    - Pay for what you use
+    - Pay for what you use (on-demand)
       - For each service, you pay for exactly the amount of resources that you actually use, without requiring long-term contracts or complex licensing.
-    - Pay less when you reserve
+    - Pay less when you reserve (1-year or 3-year contract reservation)
       - Some services offer reservation options that provide a significant discount compared to On-Demand Instance pricing.
       - For example, suppose that your company is using Amazon EC2 instances for a workload that needs to run continuously.
       - You might choose to run this workload on Amazon EC2 Instance Savings Plans, because the plan allows you to save up to 72% over the equivalent On-Demand Instance capacity.
