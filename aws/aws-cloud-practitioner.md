@@ -36,25 +36,25 @@
   - You can save costs by paying only for server capacity that you need or want.
   - **Amazon EC2 instance types**
     - General purpose instances
-      - provide a balance of compute, memory, and networking resources.
+      - provide a good balance of compute, memory, and networking resources.
       - You can use them for a variety of workloads, such as:
         - application servers
         - gaming servers
         - backend servers for enterprise applications
         - small and medium databases
     - Compute optimized instances
-      - Ideal for compute-bound applications that benefit from high-performance processors.
+      - Ideal for compute-heavy applications that benefit from high-performance processors.
       - Ideal for high-performance web servers, compute-intensive applications servers, and dedicated gaming servers.
       - You can also use compute optimized instances for batch processing workloads that require processing many transactions in a single group.
     - Memory optimized instances
       - Designed to deliver fast performance for workloads that process large datasets in memory.
       - Ideal for scenarios like a high-performance database or a workload that involves performing real-time processing of a large amount of unstructured data.
-    - Accelerated computing instances
-      - Use hardware accelerators, or coprocessors, to perform some functions more efficiently than is possible in software running on CPUs.
-      - Examples of these functions include floating-point number calculations, graphics processing, game streaming and data pattern matching.
     - Storage optimized instances
       - Designed for workloads that require high, sequential read and write access to large datasets on local storage.
       - Examples of workloads suitable for storage optimized instances include distributed file systems, data warehousing applications, and high-frequency online transaction processing (OLTP) systems.
+    - Accelerated computing instances
+      - Use hardware accelerators, or coprocessors, to perform some functions more efficiently than is possible in software running on CPUs.
+      - Examples of these functions include floating-point number calculations, graphics processing, game streaming and data pattern matching.
   - **Amazon EC2 Pricing**
     - On-Demand
     - Amazon EC2 Savings Plans
@@ -84,6 +84,7 @@
     - Amazon SQS is a message queuing service.
     - Using Amazon SQS, you can send, store, and receive messages between software components, without losing messages or requiring other services to be available.
     - In Amazon SQS, an application sends messages into a queue. A user or service retrieves a message from the queue, processes it, and then deletes it from the queue.
+
 - **AWS Lambda**
   - AWS Lambda is a service that lets you run code without needing to provision or manage servers.
   - While using AWS Lambda, you pay only for the compute time that you consume.
@@ -101,11 +102,17 @@
   - Amazon ECS supports Docker containers.
   - AWS supports the use of open-source Docker Community Edition and subscription-based Docker Enterprise Edition.
   - With Amazon ECS, you can use API calls to launch and stop Docker-enabled applications.
+  - ECS is proprietary to AWS so migrating to another cloud provider can be difficult.
+
 - **Amazon Elastic Kubernetes Service (Amazon EKS)**
   - Amazon EKS is a fully managed service that you can use to run Kubernetes on AWS.
   - Kubernetes is open-source software that enables you to deploy and manage containerized applications at scale.
   - A large community of volunteers maintains Kubernetes, and AWS actively works together with the Kubernetes community.
   - As new features and functionalities release for Kubernetes applications, you can easily apply these updates to your applications managed by Amazon EKS.
+  - EKS runs & scales control-plane across multiple Availability Zones.
+  - EKS scales control-plane instances based on load.
+  - EKS can integrate with other AWS services.
+
 - **AWS Fargate**
   - AWS Fargate is a serverless compute engine for containers. It works with both Amazon ECS and Amazon EKS.
   - When using AWS Fargate, you do not need to provision or manage servers.
@@ -233,12 +240,12 @@
     - With Amazon S3, you pay only for what you use.
     - When selecting an Amazon S3 storage class, consider these two factors:
       - How often you plan to retrieve your data
-      - How available you need your data to be
+      - How available you need your data to be (Do you need immediate access to the files or not?)
     - Here are the available storage classes in Amazon S3:
       - Amazon S3 Standard
         - Designed for frequently accessed data
         - Stores data in a minimum of three Availability Zones
-      - Amazon S3 Standard-Infrequent Access (S3 Standard-1A)
+      - Amazon S3 Standard-Infrequent Access (S3 Standard-IA)
         - Ideal for infrequently accessed data
         - Similar to Amazon S3 Standard but has a lower storage price and higher retrieval price
       - Amazon S3 One Zone-Infrequent Access (S3 One Zone-1A)
@@ -246,9 +253,6 @@
         - Has a lower storage price than Amazon S3 Standard-IA
         - Use this tier when you want to save costs on storage.
         - You can easily reproduce your data in the event of an Availability Zone failure.
-      - Amazon S3 Intelligent-Tiering
-        - Ideal for data with unknown or changing access patterns
-        - Requires a small monthly monitoring and automation fee per object
       - Amazon S3 Glacier Instant Retrieval
         - Works well for archived data that requires immediate access
         - Can retrieve objects within a few milliseconds
@@ -261,6 +265,9 @@
       - Amazon S3 Outposts
         - Creates S3 buckets on Amazon S3 Outposts
         - Makes it easier to retrieve, store, and access data on AWS Outposts
+      - Amazon S3 Intelligent-Tiering
+        - Ideal for data with unknown or changing access patterns
+        - Requires a small monthly monitoring and automation fee per object
 
 - **File storage**
   - In file storage, multiple clients (such as users, applications, servers, and so on) can access data that is stored in shared file folders.
@@ -325,18 +332,31 @@
 
 - **Amazon DocumentDB**
   - Amazon DocumentDB is a document database service that supports MongoDB workloads.
+
+- **Amazon Keyspaces**
+  - Amazon Keyspaces (for Apache Cassandra) is a scalable, highly available, and managed Apache Cassandra–compatible database service.
+  - With Amazon Keyspaces, you can run your Cassandra workloads on AWS using the same Cassandra application code and developer tools that you use today.
+
 - **Amazon Neptune**
   - Amazon Neptune is a graph database service.
   - You can use Amazon Neptune to build and run applications that work with highly connected datasets, such as recommendation engines, fraud detection, and knowledge graphs.
+
 - **Amazon Quantum Ledger Database (Amazon QLDB)**
   - Amazon QLDB is a ledger database service.
   - You can use Amazon QLDB to review a complete history of all the changes that have been made to your application data.
+
 - **Amazon Managed Blockchain**
   - Amazon Managed Blockchain is a service that you can use to create and manage blockchain networks with open-source frameworks.
   - Blockchain is a distributed ledger system that lets multiple parties run transactions and share data without a central authority.
+
 - **Amazon ElastiCache**
   - Amazon ElastiCache is a service that adds caching layers on top of your databases to help improve the read times of common requests.
   - It supports two types of data stores: Redis and Memcached.
+
+- **Amazon OpenSearch Service**
+  - Amazon OpenSearch Service makes it easy for you to perform interactive log analytics, real-time application monitoring, website search, and more.
+  - OpenSearch is an open source, distributed search and analytics suite derived from Elasticsearch.
+
 - **Amazon DynamoDB Accelerator (DAX)**
   - Amazon DynamoDB Accelerator (DAX) is an in-memory cache for DynamoDB.
   - It helps improve response times from single-digit milliseconds to microseconds.
@@ -453,6 +473,12 @@
 - **Customer Compliance Center**
   - The Customer Compliance Center contains resources to help you learn more about AWS compliance. 
   - In the Customer Compliance Center, you can read customer compliance stories to discover how companies in regulated industries have solved various compliance, governance, and audit challenges.
+- **AWS Audit Manager**
+  - AWS Audit Manager continuously collects data from your deployed resources to prepare for audits and ensures that you comply with regulatory standards.
+  - Audit Manager helps build audit-ready reports.
+- **AWS Config**
+  - Tracks how the resource is configured and records previous configuration state, so you can see how the configs for it have changed over time.
+  - Because AWS Config keeps track of historical configurations of resources, it is great for auditing and compliance.
 - **Denial-of-service attacks**
   - A denial-of-service (DoS) attack is a deliberate attempt to make a website or application unavailable to users.
   - Here, the attack originates from a single source.
@@ -501,6 +527,8 @@
   - If GuardDuty detects any threats, you can review detailed findings about them from the AWS Management Console.
   - Findings include recommended steps for remediation.
   - You can also configure AWS Lambda functions to take remediation steps automatically in response to GuardDuty’s security findings.
+- **Amazon Macie**
+  - Amazon Macie is a security service that uses machine learning to automatically discover, classify, and protect sensitive data stored in AWS.
 
 ## Monitoring and Analytics
 - **Amazon CloudWatch**
@@ -674,22 +702,22 @@
 - **Migration strategies**
   - 6 strategies for migration
   - When migrating applications to the cloud, six of the most common migration strategies that you can implement are:
-    - Rehosting
+    - **Rehosting**
       - Rehosting also known as “lift-and-shift” involves moving applications without changes.
       - In the scenario of a large legacy migration, in which the company is looking to implement its migration and scale quickly to meet a business case, the majority of applications are rehosted.
-    - Replatforming
+    - **Replatforming**
       - Replatforming, also known as “lift, tinker, and shift,” involves making a few cloud optimizations to realize a tangible benefit.
       - Optimization is achieved without changing the core architecture of the application.
-    - Refactoring/re-architecting
+    - **Refactoring/re-architecting**
       - Refactoring (also known as re-architecting) involves reimagining how an application is architected and developed by using cloud-native features.
       - Refactoring is driven by a strong business need to add features, scale, or performance that would otherwise be difficult to achieve in the application’s existing environment.
-    - Repurchasing
+    - **Repurchasing**
       - Repurchasing involves moving from a traditional license to a software-as-a-service model.
       - For example, a business might choose to implement the repurchasing strategy by migrating from a customer relationship management (CRM) system to Salesforce.com.
-    - Retaining
+    - **Retaining**
       - Retaining consists of keeping applications that are critical for the business in the source environment.
       - This might include applications that require major refactoring before they can be migrated, or, work that can be postponed until a later time.
-    - Retiring
+    - **Retiring**
       - Retiring is the process of removing applications that are no longer needed.
 - **AWS Snow Family**
   - The AWS Snow Family is a collection of physical devices that help to physically transport up to exabytes of data into and out of AWS.
@@ -705,7 +733,7 @@
           - provides powerful computing resources for use cases such as machine learning, full motion video analysis, analytics, and local computing stacks.
     - AWS Snowmobile
       - AWS Snowmobile is an exabyte-scale data transfer service used to move large amounts of data to AWS.
-      - You can transfer up to 100 petabytes of data per Snowmobile, a 45-foot long ruggedized shipping container, pulled by a semi trailer truck.
+      - You can transfer up to 100 petabytes of data per Snowmobile, a 45-foot long ruggedized shipping container, pulled by a semi-trailer truck.
 - **Innovate with AWS Services**
   - Serverless applications
   - AI
