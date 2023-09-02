@@ -110,7 +110,7 @@
     ```
 - To execute commands inside the pod: `kubectl exec -it <my-pod> bash`
   - ```shell
-    kubectl exec -it <my-pod> bash
+    kubectl exec -it nginx-pod bash
     ```
 - To access the pod from host machine using port forward: `kubectl port-forward <my-pod> hostPort:containerPort`
   - ```shell
