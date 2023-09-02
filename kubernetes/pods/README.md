@@ -6,7 +6,7 @@
 - If you scale an app up or down, you add or remove Pods.
 
 ### How we are building apps on kubernetes:
-1.  Write your app/code.
+1. Write your app/code.
 2. Package it as a container image.
 3. Wrap the container image in a pod.
 4. Run the pod in kubernetes.
@@ -84,7 +84,7 @@
   - ```shell
     kubectl apply -f nginx-pod.yml
     ```
-- To get all kubernetes object classes definitions: `kubectl api-resources`
+- To get all kubernetes object class definitions: `kubectl api-resources`
   - ```shell
     kubectl api-resources
     ```
