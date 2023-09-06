@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: strategy-deployment
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: strategy-deployment
+  template:
+    metadata:
+      labels:
+        app: strategy-deployment
+    spec:
+      containers:
+        - name: my-nginx
+          image: nigelpoulton/k8sbook:1.0
+          ports:
+            - containerPort: 80
