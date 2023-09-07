@@ -1,9 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: strategy-deployment
+  name: nginx-deployment
+  annotations:
+    kubernetes.io/change-cause: "Updating to alpine version"
 spec:
   replicas: 3
+  revisionHistoryLimit: 5
+  progressDeadlineSeconds: 600
+  minReadySeconds: 10
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -11,14 +16,14 @@ spec:
       maxUnavailable: 1
   selector:
     matchLabels:
-      app: strategy-deployment
+      app: nginx-pod
   template:
     metadata:
       labels:
-        app: strategy-deployment
+        app: nginx-pod
     spec:
       containers:
-        - name: my-nginx
-          image: nigelpoulton/k8sbook:1.0
+        - name: nginx-pod
+          image: nginx:alpine
           ports:
             - containerPort: 80

@@ -54,3 +54,56 @@
 ### Rollback
 - The older ReplicaSets are down and no longer manage any Pods.
 - However, their configurations still exist on the cluster, making them a great option for reverting to previous versions.
+
+### Deployment Sample
+Checkout the below yaml configuration and we are going to describe some of the keywords that is being used:
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  replicas: 3
+  revisionHistoryLimit: 5
+  progressDeadlineSeconds: 300
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: hello-world
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+        - name: hello-pod
+          image: hello-world:1.0
+          ports:
+            - containerPort: 80
+```
+- `apiVersion` The latest stable Deployment schema is defined in `apps/v1` subgroup.
+- `kind` Tells kubernetes that this is a `Deployment` object.
+- `metadata` Gives the Deployment a name. This should be a valid DNS name.
+- `spec` Anything below `spec` belongs to the Deployment.
+- `spec.template` Anything nested below this value is the Pod template the Deployment uses to stamp out Pod replicas.
+- `spec.replicas` How many Pod replicas the Deployment should create and manage.
+- `spec.selector` List of labels that Pods must have in order for the Deployment to manage them.
+- `spec.revisionHistoryLimit` The number of old ReplicaSets to keep to allow rollback.
+- `spec.progressDeadlineSeconds` The maximum time in seconds for a deployment to make progress before it is considered to be failed.
+- `spec.minReadySeconds` Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available.
+- `spec.strategy` The deployment strategy to use to replace existing pods with new ones.
+- `spec.strategy.rollingUpdate.maxSurge` The number of pods that can be created above the desired amount of pods during an update. This can be an absolute number or percentage of the replicas count. The default is 25%.
+- `spec.strategy.rollingUpdate.maxUnavailable` The number of pods that can be unavailable during the update process. This can be an absolute number or a percentage of the replicas count. The default is 25%.
+
+### Rollout commands
+- `kubectl rollout status deployment <deployment-name>`: monitor the progress of the rolling updates.
+- `kubectl rollout pause deploy <deployment-name>`: If the rollout is still in progress, you can pause it with this command.
+- `kubectl rollout resume deploy <deployment-name>`: To resume the rollout.
+- `kubectl rollout history deployment/<deployment-name>`: The revision history of the rollouts.
+- `kubectl rollout undo deploy <deployment-name> --to-revision=<old-revision>`: Revert the application to an old revision. **This operation is not recommended as it's an imperative operation**
+- 
