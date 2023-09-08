@@ -106,4 +106,3 @@ spec:
 - `kubectl rollout resume deploy <deployment-name>`: To resume the rollout.
 - `kubectl rollout history deployment/<deployment-name>`: The revision history of the rollouts.
 - `kubectl rollout undo deploy <deployment-name> --to-revision=<old-revision>`: Revert the application to an old revision. **This operation is not recommended as it's an imperative operation**
-- 

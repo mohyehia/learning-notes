@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nginx-deployment
   annotations:
-    kubernetes.io/change-cause: "Updating to alpine version"
+    kubernetes.io/change-cause: "Rollback deployment to the latest nginx image"
 spec:
   replicas: 3
   revisionHistoryLimit: 5
@@ -24,6 +24,6 @@ spec:
     spec:
       containers:
         - name: nginx-pod
-          image: nginx:alpine
+          image: nginx
           ports:
             - containerPort: 80
