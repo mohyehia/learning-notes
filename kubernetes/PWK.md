@@ -22,3 +22,9 @@
 
 ### view the minikube dashboard
 `minikube dashboard -p <cluster-name>`
+
+### get service url from minikube
+`minikube service <service-name> --url`
+
+### open service directly
+`minikube service <service-name>`
