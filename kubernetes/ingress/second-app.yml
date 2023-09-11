@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: second-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: second
+  template:
+    metadata:
+      labels:
+        app: second
+    spec:
+      containers:
+        - name: second-container
+          image: nigelpoulton/k8sbook:hydra-ingress
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-second
+spec:
+  type: ClusterIP
+  selector:
+    app: second
+  ports:
+    - port: 8080
+      targetPort: 8080

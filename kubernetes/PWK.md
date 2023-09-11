@@ -28,3 +28,6 @@
 
 ### open service directly
 `minikube service <service-name>`
+
+### open ingress resource from browser in windows. Use the `127.0.0.1` at the hosts file instead of the minikube IP
+`minikube tunnel`

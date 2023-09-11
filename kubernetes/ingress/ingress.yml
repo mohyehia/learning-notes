@@ -1,0 +1,50 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: first-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  tls:
+    - secretName: demo-com-tls
+      hosts:
+        - "demo.com"
+  rules:
+    - host: demo.com
+      http:
+        paths:
+          - path: /first
+            pathType: Prefix
+            backend:
+              service:
+                name: svc-first
+                port:
+                  number: 8080
+          - path: /second
+            pathType: Prefix
+            backend:
+              service:
+                name: svc-second
+                port:
+                  number: 8080
+    - host: first.demo.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: svc-first
+                port:
+                  number: 8080
+    - host: second.demo.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: svc-second
+                port:
+                  number: 8080
