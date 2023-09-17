@@ -1,0 +1,12 @@
+# We can use this PVC to mount it with any existing Pod instead of mounting the volume directly to the Pods
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-pvc
+spec:
+  accessModes:
+    - ReadWriteMany   # by using this property the PV we created 'pv.yml' will check for an existing PVC with the same access modes
+  resources:
+    requests:
+      storage: 1Gi    # by using this property the PV we created 'pv.yml' will check for an existing PVC with the same storage capacity
+  storageClassName: "mongo-local-sc"    # if there is an existing StorageClass we can specify its name here so that the StorageClass create the PV itself instead of creating the PV manually
