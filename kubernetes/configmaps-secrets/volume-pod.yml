@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: volume-pod
+spec:
+  volumes:
+    - name: pod-volume    # create a new volume called 'pod-volume' based on the configMap called 'sample-cm'
+      configMap:
+        name: sample-cm
+  containers:
+    - name: dummy-ctr
+      image: nginx
+      volumeMounts:     # these lines mount the 'pod-volume' volume into the container at this directory '/etc/volume-pod'
+        - mountPath: /etc/volume-pod
+          name: pod-volume
+          readOnly: true

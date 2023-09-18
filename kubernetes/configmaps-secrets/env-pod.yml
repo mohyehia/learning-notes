@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-pod
+spec:
+  containers:
+    - name: dummy-ctr
+      image: busybox
+      command: ["sleep"]
+      args: ["infinity"]
+      env:
+        - name: COUNTRY
+          valueFrom:
+            configMapKeyRef:
+              key: country
+              name: sample-cm
+        - name: CITY
+          valueFrom:
+            configMapKeyRef:
+              key: city
+              name: sample-cm
