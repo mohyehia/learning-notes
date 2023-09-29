@@ -30,7 +30,18 @@
   - `Role`
   - `RoleBinding`
 - Roles define a set of permissions, and RoleBindings grant those permissions to users.
-
+- On their own, Roles don’t do anything. They need binding to a user.
+- Each Role will have 3 objects inside the `rules` object of the `Role` definition:
+  - apiGroups
+  - resources
+  - verbs
+- Together, they define which actions are allowed against which objects. 
+- `apiGroups` and `resources` define the object, and `verbs` define the actions.
+- Use this command to find the available `verbs` for any `resources`: `kubectl api-resources --sort-by name -o wide | grep <reourceName>`
+- `Roles` and `RoleBindings` are namespaced objects. This means they can only be applied to a single Namespace.
+- `ClusterRole` and `ClusterRoleBinding` are cluster-wide objects and apply to all Namespaces.
+- A powerful pattern is to define `Role` at the cluster level (`ClusterRole`) and bind them to specific Namespaces via RoleBindings.
+- This lets you define common roles once, and re-use them across multiple Namespaces.
 
 ### Create New Users
 1. Generate new private key for the new user: `openssl genrsa -out mohyehia.key 2048`
@@ -46,3 +57,21 @@
 - ex for the above command: `kubectl auth can-i create pods`
 - To check if a `ServiceAccount` can perform an action: `kubectl auth can-i <verb> <resource> --as="system:serviceaccount:<namespace>:<service-account-name>"`
 - ex for the above command: `kubectl auth can-i create pods --as="system:serviceaccount:default:test-sa"`
+
+### Admission Control
+- Admission control runs immediately after successful authentication and authorization and is all about policies.
+- There are two types of admission controllers:
+  - Mutating
+  - Validating
+- Mutating controllers check for compliance and can modify requests.
+- Validating controllers check for policy compliance but cannot modify requests.
+- Mutating controllers always run first, and both types only apply to requests that will modify state.
+- Requests to read state are not subjected to admission control.
+- An example for the admission controller is `AlwaysPullImages` controller.
+- It’s a mutating controller that sets the `spec.containers.imagePullPolicy` of all new Pods to `Always`.
+- This means container images will always be pulled from the registry.
+- It accomplishes quite a few things, including the following:
+  - Preventing the use of local images that could be malicious
+  - Only nodes with valid credentials can pull images and run containers
+- If any admission controller rejects a request, it’s immediately rejected without checking other admission controllers.
+- However, if all admission controllers approve the request, it gets persisted to the cluster store and instantiated on the cluster.
