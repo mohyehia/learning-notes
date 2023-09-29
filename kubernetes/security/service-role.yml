@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: service-admin
+rules:
+  - verbs:
+      - list
+      - get
+      - watch
+      - create
+      - delete
+    resources:
+      - services
+    apiGroups:
+      - ""

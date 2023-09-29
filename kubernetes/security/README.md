@@ -40,3 +40,9 @@
 5. Create new context for the newly created user to assign him to an existing cluster: `kubectl config set-context <context-name> --cluster=<cluster-name> --user=<username> --namespace=<namespace-name>`
 6. Example for the above command: `kubectl config set-context mohyehia-minikube --cluster=minikube --user=mohyehia --namespace=default`
 7. Switch the minikube context to the newly created context for our new user using this command: `kubectl config use-context <context-name>`
+
+### Another Commands
+- check if the current logged-in user can perform an action: `kubectl auth can-i <verb> <resource>`
+- ex for the above command: `kubectl auth can-i create pods`
+- To check if a `ServiceAccount` can perform an action: `kubectl auth can-i <verb> <resource> --as="system:serviceaccount:<namespace>:<service-account-name>"`
+- ex for the above command: `kubectl auth can-i create pods --as="system:serviceaccount:default:test-sa"`
