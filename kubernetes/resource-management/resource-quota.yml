@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: resource-quota
+spec:
+  hard:
+    requests.cpu: 400m  # Across all pods in a non-terminal state, the sum of CPU requests cannot exceed this value
+    requests.memory: 200Mi  # Across all pods in a non-terminal state, the sum of memory requests cannot exceed this value
+    limits.cpu: 2000m  # Across all pods in a non-terminal state, the sum of CPU limits cannot exceed this value
+    limits.memory: 8Gi  # Across all pods in a non-terminal state, the sum of memory limits cannot exceed this value
+    pods: '10'  # the max number of pods for this namespace is 10
+    replicationcontrollers: '5'
+    configmaps: '10'
+    secrets: '10'
+    persistentvolumeclaims: '4'
+    services: '5'
+    services.loadbalancers: '1'
+    services.nodeports: '2'
+    # only 2 PVCs can claim storage with ssd StorageClass
+    ssd.storageclass.storage.k8s.io/persistentvolumeclaims: '2'
