@@ -14,7 +14,7 @@
 - As nodes are removed from the cluster, those Pods are garbage collected.
 - Deleting a DaemonSet will clean up the Pods it created.
 - You cannot scale `DaemonSet` pods in a node.
-- If for so,me reason, the `DaemonSet` pod gets deleted from the node, the `DaemonSet` controller creates it again.
+- If for some reason, the `DaemonSet` pod gets deleted from the node, the `DaemonSet` controller creates it again.
 
 ### Use cases for DaemonSets
 - Cluster Log Collection
