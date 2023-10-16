@@ -1,0 +1,34 @@
+### list namespaces
+GET http://localhost:9090/api/v1/namespaces
+
+### add new namespace
+POST http://localhost:9090/api/v1/namespaces
+Content-Type: application/json
+Accept: application/json
+
+{
+  "apiVersion": "v1",
+  "kind": "Namespace",
+  "metadata": {
+    "name": "demo-api-server",
+    "labels": {
+      "env": "dev"
+    }
+  }
+}
+
+### delete namespace
+DELETE http://localhost:9090/api/v1/namespaces/demo-api-server
+Content-Type: application/json
+
+### list nodes
+GET http://localhost:9090/api/v1/nodes
+
+### list named group resources
+## this is a sample of the api for a named group:
+## http://localhost:9090/{group}/{version}/{resource}
+## each named group will start with the prefix `/apis`
+GET http://localhost:9090/apis/storage.k8s.io/v1/storageclasses
+
+### list pods inside the default namespace
+GET http://localhost:9090/api/v1/namespaces/default/pods
