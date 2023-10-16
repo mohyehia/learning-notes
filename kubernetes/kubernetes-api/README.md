@@ -44,3 +44,22 @@
 - Ex => `/apis/storage.k8s.io/v1/storageclasses`
 - Dividing the API into smaller groups makes it more scalable and easier to navigate.
 - It also makes it easier to extend.
+
+### Alpha, Beta & Stable
+- Kubernetes has a strict process for adding new resources to the API.
+- They come in as `alpha`, progress through `beta`, and eventually reach `stable`.
+- Resources in `alpha` are experimental and should not be used.
+- A lot of clusters disable alpha APIs by default, and you should use them with extreme caution.
+- A resource that progresses through two alpha versions will go through the following APIs:
+  - `/apis/some-api/v1alpha1/`
+  - `/apis/some-api/v1alpha2/`
+- Resources in `beta` are considered "pre-release" and are starting to look and feel a lot like they will graduate to `stable`.
+- Most clusters enable `beta` APIs by default, and many people use `beta` objects in production environments.
+- A resource that progresses through two beta versions will be served through the following APIs:
+  - `/apis/some-api/vbeta1`
+  - `/apis/some-api/vbeta2`
+- The final phase after beta is `stable`, sometimes referred to as `generally available (GA)`.
+- Stable resources are considered production-ready and Kubernetes has a strong long term commitment to them.
+- Examples of paths to stable resources include the following:
+  - `/apis/some-api/v1/`
+  - `/apis/some-api/v2/`
