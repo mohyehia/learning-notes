@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: traffic-generator
+  labels:
+    app: traffic-generator
+spec:
+  containers:
+    - name: traffic-generator-ctr
+      image: alpine
+      args:
+        - sleep
+        - '100000000'
+  
