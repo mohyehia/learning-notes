@@ -74,7 +74,7 @@
   - Then, the requests spread across multiple resources that will handle them.
   - Although Elastic Load Balancing and Amazon EC2 Auto Scaling are separate services, they work together to help ensure that applications running in Amazon EC2 can provide high performance and availability.
     - Here is an image that demonstrates the Elastic Load Balancing <br/>
-      ![alt AWS Elastic Load Balancing](./img/aws-elb.png "AWS Elastic Load Balancing")
+      ![alt AWS Elastic Load Balancing](../img/aws-elb.png "AWS Elastic Load Balancing")
 
 - **Messaging and queuing** 
   - **Amazon Simple Notification Service (Amazon SNS)**
@@ -168,7 +168,7 @@
   - You can think of an internet gateway as being similar to a doorway that customers use to enter the coffee shop.
   - Without an internet gateway, no one can access the resources within your VPC.
       - Here is an image that demonstrates the Internet Gateway <br/>
-        ![alt AWS Internet Gateway](./img/aws-internet-gateway.png "AWS Internet Gateway")
+        ![alt AWS Internet Gateway](../img/aws-internet-gateway.png "AWS Internet Gateway")
 
 - **NAT Gateway**
   - NAT gateway allow subnets to talk to the internet but connections must be initiated from within the VPC.
@@ -178,7 +178,7 @@
   - A virtual private gateway enables you to establish a virtual private network (VPN) connection between your VPC and a private network, such as an on-premises data center or internal corporate network.
   - A virtual private gateway allows traffic into the VPC only if it is coming from an approved network.
   - Check the below image for visual demonstration <br/>
-    ![alt AWS Virtual Private Gateway](./img/aws-virtual-gateway.png "AWS Virtual Internet Gateway")
+    ![alt AWS Virtual Private Gateway](../img/aws-virtual-gateway.png "AWS Virtual Internet Gateway")
 - **Firewalls**
   - There are 2 types of firewalls: Stateless & Stateful
   - Stateless firewalls require traffic to be explicitly permitted inbound & outbound.
@@ -191,7 +191,7 @@
 - **AWS Direct Connect**
   - A service that enables you to establish a dedicated private connection between your data center and a VPC.  
     - Check the below image for visual demonstration <br/>
-      ![alt AWS Direct Connect](./img/aws-direct-connect.png "AWS Direct Connect")
+      ![alt AWS Direct Connect](../img/aws-direct-connect.png "AWS Direct Connect")
 
 - **AWS Route 53**
   - It's a DNS web service. It gives developers and businesses a reliable way to route end users to internet applications hosted in AWS.
@@ -367,7 +367,7 @@
   - This concept is known as the shared responsibility model.
   - The shared responsibility model divides into customer responsibilities (commonly referred to as “security in the cloud”) and AWS responsibilities (commonly referred to as “security of the cloud”).
     - Check the below image for visual demonstration <br/>
-      ![alt AWS Shared Responsibility Model](./img/aws-shared-responsibility.png "AWS Shared Responsibility Model")
+      ![alt AWS Shared Responsibility Model](../img/aws-shared-responsibility.png "AWS Shared Responsibility Model")
   - Customers: Security in the cloud
     - Customers are responsible for the security of everything that they create and put in the AWS Cloud.
     - When using AWS services, you, the customer, maintain complete control over your content.
@@ -545,7 +545,7 @@
     - For example, you can use a CloudWatch dashboard to monitor the CPU utilization of an Amazon EC2 instance, the total number of requests made to an Amazon S3 bucket, and more.
     - You can even customize separate dashboards for different business purposes, applications, or resources.
       - Check the below image for visual demonstration <br/>
-          ![alt AWS CloudWatch dashboard](./img/cloud-watch-dashboard.png "AWS CloudWatch dashboard")
+          ![alt AWS CloudWatch dashboard](../img/cloud-watch-dashboard.png "AWS CloudWatch dashboard")
 - **AWS CloudTrail**
   - AWS CloudTrail records API calls for your account.
   - The recorded information includes the identity of the API caller, the time of the API call, the source IP address of the API caller, and more.
