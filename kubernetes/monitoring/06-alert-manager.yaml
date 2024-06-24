@@ -26,10 +26,10 @@ spec:
             - '--config.file=/opt/bitnami/alertmanager/conf/config.yml'
           resources:
             requests:
-              cpu: 500m
-              memory: 500M
+              cpu: '100m'
+              memory: '500M'
             limits:
-              cpu: '1'
+              cpu: '100m'
               memory: '500M'
           volumeMounts:
             - mountPath: /opt/bitnami/alertmanager/conf
