@@ -29,7 +29,7 @@ resource "aws_subnet" "public_subnet_a" {
   vpc_id                                         = aws_vpc.demo_vpc.id
   cidr_block                                     = "10.0.0.0/24"
   availability_zone                              = "eu-west-1a"
-  map_public_ip_on_launch                        = false
+  map_public_ip_on_launch                        = true
   enable_dns64                                   = false
   enable_resource_name_dns_a_record_on_launch    = false
   enable_resource_name_dns_aaaa_record_on_launch = false
@@ -42,7 +42,7 @@ resource "aws_subnet" "public_subnet_b" {
   vpc_id                                         = aws_vpc.demo_vpc.id
   cidr_block                                     = "10.0.1.0/24"
   availability_zone                              = "eu-west-1b"
-  map_public_ip_on_launch                        = false
+  map_public_ip_on_launch                        = true
   enable_dns64                                   = false
   enable_resource_name_dns_a_record_on_launch    = false
   enable_resource_name_dns_aaaa_record_on_launch = false
