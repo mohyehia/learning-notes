@@ -1,0 +1,11 @@
+resources:
+  - ../../base
+  - namespace.yaml
+namespace: prod
+secretGenerator:
+  - name: username
+    literals:
+      - username=admin
+  - name: region
+    files:
+      - region=region.txt
