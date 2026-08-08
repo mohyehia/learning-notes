@@ -139,6 +139,7 @@
 - [ ] [Common Problems in Message Queues [With Solutions]](https://medium.com/@vinciabhinav7/common-problems-in-message-queues-with-solutions-f0703c0bd5af)
 - [ ] [When to Use Kafka or RabbitMQ in System Design](https://rushi1807.medium.com/when-to-use-kafka-or-rabbitmq-in-system-design-f69723331b31)
 - [ ] [System Design: Push vs Pull architecture paradigms](https://medium.com/@guptaabhinav206/system-design-push-vs-pull-architecture-paradigms-d9803b87419a)
+- [ ] [Message Queues Guide [2026 Edition]](https://interviewnoodle.com/message-queues-guide-2026-edition-ce8b7002fbd7)
 - [ ] **Build project:** Build an order-processing workflow with Kafka or RabbitMQ including producer/consumer, DLQ, retry policy, and an outbox-based publisher
 
 
