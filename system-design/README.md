@@ -124,6 +124,7 @@
 
 ### Distributed ID Generation
 - [ ] [UUID Alternatives for Cloud Apps](https://medium.com/@csjcode/uuid-alternatives-for-cloud-apps-9410f194b4d1)
+- [ ] [Snowflake IDs Explained: How Distributed Systems Generate Unique IDs at Scale](https://interviewnoodle.com/snowflake-ids-explained-how-distributed-systems-generate-unique-ids-at-scale-9f9b5098736a)
 - [ ] **Build project:** Implement a Snowflake-style ID generator service in Spring Boot and compare UUID vs ULID vs Snowflake performance in PostgreSQL indexes
 
 ### Bloom Filters
