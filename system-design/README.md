@@ -29,6 +29,7 @@
 - [ ] [Java Concurrency with Load Balancer Simulation](https://turkogluc.com/java-concurrency-with-load-balancer-simulation/)
 - [ ] [System Design Of Loadbalancer](https://medium.com/@lazygeek78/system-design-of-loadbalancer-9b67283703f3)
 - [ ] [Sticky Sessions: An In-Depth Overview](https://medium.com/@aditimishra_541/sticky-sessions-an-in-depth-overview-4ec19bd7e22a)
+- [ ] [The Essential Guide to Load Balancing Strategies and Techniques](https://levelup.gitconnected.com/the-essential-guide-to-load-balancing-strategies-and-techniques-35ef3f869112)
 - [ ] **Build project:** Run 3 Spring Boot instances behind Nginx, implement health checks + sticky sessions, and also code a small Java round-robin/least-connections load balancer simulator
 
 ### API Gateway
@@ -55,6 +56,7 @@
 - [ ] [Websockets: Scaling Over a Distributed System](https://medium.com/@taycode/websockets-scaling-over-a-distributed-system-ea567d8372e5)
 - [ ] [System design: Scaling WebSocket Applications](https://medium.com/@dinh.nt/system-design-scaling-websocket-applications-c7827ec82afb)
 - [ ] [HTTP Long Polling vs WebSockets](https://medium.com/@dmosyan/http-long-polling-vs-websockets-dadab8f7f26f)
+- [ ] [Server-Sent Events: A System Design Deep Dive, From TCP to Production](https://levelup.gitconnected.com/server-sent-events-a-system-design-deep-dive-from-tcp-to-production-8329db4e3311)
 - [ ] **Build project:** Build a real-time notification or chat service using Spring WebSocket/STOMP and Redis Pub/Sub so it works across multiple instances
 
 ---
