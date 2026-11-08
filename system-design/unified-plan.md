@@ -2,26 +2,50 @@
 
 > **Goal:** Become a better engineer — not just learn more, but think and decide differently.
 >
-> **Structure:** 7 books drive the learning. README topics slot in as reinforcement reading + selective builds.
-> Each phase has ONE theme, ONE book project, and at most ONE extra README build.
+> **This file is a MAP, not a BACKLOG.** Nothing here is overdue. You are not behind.
+> Check it once a quarter. The rest of the time, you only need to know one thing: which book you're reading.
 >
 > **Timeline:** ~20-22 months | ~5-8 hours/week | No rushing. Buffer included for life.
 >
-> **The Principle:** Read theory (book) → Reinforce with articles (README) → Build something hard → Write about it → Apply at work.
+> **The Principle:** Read the book → Build something hard → Write about it → Apply at work.
+> (Articles are a lookup table for when you get stuck — not a reading list. See Rule 9.)
 >
 > **Key dependency:** Phases 3→4→5 build one progressive system (saga → observe it → deploy it). See the escape hatch note below if Phase 3 stalls.
 
-### 🚀 Start Today
+---
 
-1. Read the 3 Phase 1 prerequisites (~2-3 hours total)
-2. Open DDIA Chapter 1
-3. Read 20 pages
-4. Done. You're in motion.
+## 📍 Where You Are Right Now
+
+> **Last updated:** October 2026
+
+|                      |                                                               |
+|----------------------|---------------------------------------------------------------|
+| **Current phase**    | Phase 1 — DDIA                                                |
+| **Started**          | Late August 2026                                              |
+| **Reading position** | Early chapters (Part I)                                       |
+| **Project status**   | Not started — correct. Begin at Ch. 3, not before.            |
+| **Target**           | Finish DDIA reading by ~Jan 2027. Project can spill into Feb. |
+
+### The only thing you have to do this week
+
+**Read DDIA. 30 minutes, 3–4 times.** That's it. That's the whole assignment.
+
+Everything below this line is reference material for future-you. Not homework for present-you.
+
+### Already parked (do not reopen)
+
+| Thing              | State                                                                                  | When to revisit                                           |
+|--------------------|----------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| `kubectl-clone`    | ✅ v0.2 — config, flags, `version`, `get`, `describe`, `delete`, table/JSON/YAML output | Phase 5 (K8s book) — then add `logs`, `apply`, `rollout`  |
+| `goku` load tester | ✅ Done                                                                                 | Never. It served its purpose.                             |
+| LeetCode           | Optional sidebar — see `leetcode_plan.md`                                              | 0–2 problems/week. Skip entirely during heavy DDIA weeks. |
+| Go infra projects  | Menu for month 22+ — see `go-infra-projects.md`                                        | After Phase 7. Pick 2–3, not 10.                          |
 
 ---
 
 ## Table of Contents
 
+- [📍 Where You Are Right Now](#-where-you-are-right-now)
 - [Overview](#overview)
 - [Milestone Checkpoints](#milestone-checkpoints)
 - [Escape Hatch](#escape-hatch-if-phases-345-stall)
@@ -42,15 +66,17 @@
 
 ## Overview
 
-| Phase | Months | Book                       | README Build (1 max)           | Writing Output                                  |
-|-------|--------|----------------------------|--------------------------------|-------------------------------------------------|
-| 1     | 1–4    | DDIA                       | Consistent Hashing             | "How this changes my production thinking" notes |
-| 2     | 5–6    | Fundamentals SA            | API Gateway / BFF              | ADRs for real production system                 |
-| 3     | 7–10   | Event-Driven Microservices | Rate Limiter                   | Design doc (before) + post-mortem (after)       |
-| 4     | 10–12  | Observability Engineering  | DB Replication + observability | SLO proposal for a real service                 |
-| 5     | 12–14  | Kubernetes Book            | None (book project is enough)  | Chaos test runbook                              |
-| 6     | 14–18  | Database Internals         | Bloom Filter service           | Blog post: LSM-tree vs B-tree benchmarks        |
-| 7     | 18–22  | Systems Programming in Go  | None (TSDB is the capstone)    | GitHub README with architecture decisions       |
+| Phase | Months | Calendar (est.)     | Book                       | Project Language | README Build (1 max, optional)  |
+|-------|--------|---------------------|----------------------------|------------------|---------------------------------|
+| **1** | 1–4    | **Sep 2026–Jan 27** | **DDIA** ← *you are here*  | **Go**           | Consistent Hashing              |
+| 2     | 5–6    | Feb–Mar 2027        | Fundamentals SA            | Java/Spring      | API Gateway / BFF               |
+| 3     | 7–10   | Apr–Jul 2027        | Event-Driven Microservices | Java/Spring      | Rate Limiter                    |
+| 4     | 10–12  | Jul–Sep 2027        | Observability Engineering  | Java/Spring      | DB Replication + observability  |
+| 5     | 12–14  | Sep–Nov 2027        | Kubernetes Book            | YAML/Helm        | None (book project is enough)   |
+| 6     | 14–18  | Nov 27–Mar 2028     | Database Internals         | Go               | Bloom Filter service            |
+| 7     | 18–22  | Mar–Jul 2028        | Systems Programming in Go  | Go               | None (TSDB is the capstone)     |
+
+> **Calendar dates are estimates, not deadlines.** If Phase 1 takes until March, the whole table shifts. That's fine. Nobody is grading this.
 
 ---
 
@@ -83,9 +109,10 @@ Phases 3, 4, and 5 build progressively on one system (saga → observe → deplo
 
 These are the longest phases (3-4 months each). If you get stuck:
 
-- **DDIA stalling on the project:** Simplify the KV store — build only ONE engine (the LSM-tree-like append-only log). Skip the hash index engine. You'll still learn the core concepts. The comparison can be done by benchmarking your engine against Redis or LevelDB instead of your own second implementation.
+- **DDIA stalling on the project:** You can't really stall — the project is staged. Stop at whatever stage works and move on. Stage 1 (append-only log) alone teaches the core lesson. If you want the comparison without building a second engine, benchmark yours against Redis or BoltDB.
 - **DB Internals stalling on the project:** Build the LSM-tree incrementally: first just WAL + memtable + flush to file. Get that working. Then add bloom filters. Then add compaction. Don't try to build it all at once — each layer is a meaningful milestone.
 - **Either book feeling too dense:** Slow down. Read 10 pages instead of 20. Re-read a chapter. The depth matters more than the pace. These two books are the ones where slowing down has the highest ROI.
+- **Feeling overwhelmed by the whole repo:** Close every file except this one, scroll to "Where You Are Right Now," do that one line, close the laptop.
 
 The rule: **Never let a stalled project block you from reading the next book.** Reading can always continue. Projects can catch up.
 
@@ -93,15 +120,16 @@ The rule: **Never let a stalled project block you from reading the next book.** 
 
 ## Phase 1: Data & Storage Foundations
 
-### Prerequisites (1–2 days)
+### Prerequisites — ✅ DONE, you've already started the book
 
-> Refresh these before opening DDIA. The book assumes you have an intuition for how data moves and how hash-based structures work.
+> You did the warm-up in August and you're already reading. **Do not go back and "finish" these.**
+> Listed here only so you know where to look if a chapter suddenly assumes something you don't have.
 
-| Parent Topic (README Section)   | Topic                    | What to Read (from README)                                                                                                                                                                                    | Why                                                                                                                                                          |
-|---------------------------------|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Hashing                         | Hashing fundamentals     | [Hashing in Data Structure](https://www.scaler.com/topics/data-structures/hashing-in-data-structure/) + [Load Factor and Rehashing](https://www.scaler.com/topics/data-structures/load-factor-and-rehashing/) | DDIA Ch. 3 opens with hash indexes, Ch. 6 uses hash partitioning. You need to feel *why* key distribution matters.                                           |
-| Back-of-the-Envelope Estimation | Latency numbers          | [Latency Numbers Every Programmer Should Know](https://gist.github.com/jboner/2841832)                                                                                                                        | DDIA constantly argues "sequential disk > random disk", "memory > disk", "network = unreliable." Internalize the orders of magnitude.                        |
-| Database Indexing               | Basic DB indexing (skim) | [An in-depth look at Database Indexing](https://www.freecodecamp.org/news/database-indexing-at-a-glance-bb50809d48bd/)                                                                                        | Gives you user-level context so Ch. 3 becomes "here's what's happening *underneath*" rather than learning two things at once. Skip if nothing surprises you. |
+| Parent Topic (README Section)   | Topic                | Status | Lookup if...                                                           |
+|---------------------------------|----------------------|--------|------------------------------------------------------------------------|
+| Back-of-the-Envelope Estimation | Latency numbers      | ✅ Read | You lose intuition for "why is sequential disk faster than random?"    |
+| Hashing                         | Hashing fundamentals | Skim   | Ch. 3 hash indexes or Ch. 6 hash partitioning feel hand-wavy           |
+| Database Indexing               | Basic DB indexing    | Skip   | Honestly — you've tuned PostgreSQL indexes for 7 years. You know this. |
 
 ---
 
@@ -120,18 +148,49 @@ The rule: **Never let a stalled project block you from reading the next book.** 
 - [ ] Articulate the difference between stream processing and batch processing and when to use each
 - [ ] Draw a data pipeline from ingestion to query for a real system, labeling replication, partitioning, and consistency boundaries
 
-### Book Project: Mini Key-Value Store (Java)
+### Book Project: Mini Key-Value Store (**Go**)
 
-- Two storage engines: hash index vs log-structured (LSM-tree-like) append-only engine
-- Write-ahead log for crash recovery
-- Basic compaction (merge SSTables, remove tombstones)
-- Simple TCP server (`GET key`, `SET key value`, `DEL key`)
-- Benchmark: compare write throughput, read latency, and space amplification at 100K, 1M, and 10M keys
-- Write an internal doc explaining which engine wins for which workload and why
+> ⛔ **Do not start before Chapter 3.** Reading comes first. If you're in Ch. 1–2, this section doesn't exist yet.
 
-### README Topics to Read Alongside
+**Why Go instead of Java:** Storage engines are a systems problem — byte offsets, binary encoding, `fsync`, buffered readers. Go's stdlib is built for exactly this; Java fights you with `FileChannel`/`ByteBuffer` ceremony. You also get honest benchmarks from `go test -bench` without JMH setup or JIT warmup noise distorting latency numbers. And it compounds: Phases 6 and 7 are also Go.
 
-| DDIA Chapter                    | README Section                   |
+**Build it in stages. Each stage is a complete, working milestone — stop at any point.**
+
+| Stage | Unlocked by  | What you build                                                      | What it teaches                                       |
+|-------|--------------|---------------------------------------------------------------------|-------------------------------------------------------|
+| **1** | Ch. 3        | Append-only log. `SET` / `GET` / `DEL`. Replay file on startup.     | Sequential writes, crash recovery, tombstones         |
+| **2** | Ch. 3        | In-memory hash index: `key → byte offset`                           | Why Bitcask is fast; memory-vs-disk trade-off         |
+| **3** | Ch. 3        | Compaction — rewrite log keeping only latest value per key          | Space amplification, why deletes aren't immediate     |
+| **4** | Ch. 4        | Versioned record format (read v1 and v2 payloads)                   | Schema evolution, backward/forward compatibility      |
+| **5** | *optional*   | Sorted segments (SSTable-ish) + sparse index                        | LSM-tree intuition — the groundwork for Phase 6       |
+
+**Interface to code against:**
+
+```go
+type Engine interface {
+    Set(key, value []byte) error
+    Get(key []byte) ([]byte, error)
+    Delete(key []byte) error
+    Compact() error
+    Stats() Stats
+}
+```
+
+**Benchmark each stage** — numbers are the point, not the code:
+
+```bash
+go test -bench=. -benchmem ./storage/...
+```
+
+Measure: write throughput, read latency (existing vs missing keys), startup recovery time, file size growth. Record results at 100K and 1M keys. Write one short doc: *"which design wins for which workload, and why."*
+
+> **If you only get through Stage 3, this project succeeded.** Stage 5 is a bonus, and Phase 6 covers it properly anyway.
+
+### Articles for Ch.-by-Ch. Lookup (pull, don't push)
+
+> ⚠️ **Not a reading list.** Do not work through this table. Open a link only when a specific chapter leaves you confused and you want a second explanation.
+
+| DDIA Chapter                    | If stuck, look up in README      |
 |---------------------------------|----------------------------------|
 | Ch. 3 – Storage & Retrieval     | Database Indexing                |
 | Ch. 5 – Replication             | Database Replication             |
@@ -139,19 +198,22 @@ The rule: **Never let a stalled project block you from reading the next book.** 
 | Ch. 7 – Transactions            | ACID Principles                  |
 | Ch. 8 – Distributed Problems    | CAP Theorem                      |
 | Ch. 9 – Consistency & Consensus | Leader Election & Consensus      |
-| Ch. 10-11 – Batch & Stream      | Message Queues (read only)       |
+| Ch. 10-11 – Batch & Stream      | Message Queues                   |
 
-### README Build: Consistent Hashing
+### Optional README Build: Consistent Hashing (**Go**)
 
-- Build a hash ring with virtual nodes in Java
-- Place keys, add/remove nodes, measure data movement on rebalance
-- Why now: DDIA Ch. 6 teaches you *why* consistent hashing matters. Building it makes partitioning visceral.
-- Scope: A weekend project — small but high-impact.
+- Hash ring with virtual nodes. Add/remove nodes, measure % of keys that move on rebalance.
+- Why now: Ch. 6 explains *why* it matters; building it makes partitioning visceral.
+- Scope: one weekend. **Skip it if the KV store is already eating your time.**
 
 ### Writing Output
 
 After each Part (I, II, III), write a 1-page note:
 > "How this changes my thinking about our production systems. What decision would I now make differently?"
+
+Plus a running list in the same file:
+
+> **Questions DDIA makes me ask about our systems** — e.g. *"Do any of our APIs read from an Aurora replica right after a write?"*, *"Are our SQS consumers actually idempotent?"* This list is the highest-value artifact of Phase 1. It turns into ADRs, architecture reviews, and tech-debt conversations at work.
 
 ---
 
@@ -427,7 +489,17 @@ The book project is already substantial. Focus on operational excellence, not ne
 
 > Unique knowledge that 95% of engineers lack. B-Trees, LSM-Trees, consensus protocols, distributed storage internals.
 >
-> **Connection to Phase 1:** You already built a simpler KV store in Java (hash index + append-only log). This time you build a *complete* LSM-tree in Go — with bloom filters, proper compaction, and crash recovery. The conceptual overlap is intentional: Phase 1 gave you intuition, Phase 6 gives you mechanical understanding. Different language forces you to relearn instead of copy-paste.
+> **Connection to Phase 1:** Both projects are Go, and that's fine — the gap isn't language, it's **depth**.
+>
+> |            | Phase 1 KV store                            | Phase 6 LSM-tree engine                   |
+> |------------|---------------------------------------------|-------------------------------------------|
+> | Index      | In-memory hash map                          | Memtable + bloom filters + sparse index   |
+> | Files      | One log file                                | WAL + multiple levelled SSTables          |
+> | Compaction | Manual, single-file rewrite                 | Background, multi-file merge, levelled    |
+> | Recovery   | Replay whole log                            | WAL replay with checkpointing             |
+> | Level      | **Intuition** — *why storage engines exist* | **Mechanics** — *how real ones are built* |
+>
+> You won't copy-paste, because Phase 6 asks questions Phase 1 never raised: *when do you flush? how do you avoid read amplification across 12 SSTables? what happens if you crash mid-compaction?*
 
 ### Learning Objectives
 
@@ -543,21 +615,22 @@ Read or build these **only when a work project demands it:**
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                                                         │
-│   READ (book)                                           │
+│   READ (book — the only non-negotiable step)            │
 │     ↓                                                   │
-│   REINFORCE (README articles, same theme)               │
+│   BUILD (book project; stop at any working stage)       │
 │     ↓                                                   │
-│   BUILD (book project + 1 README build max)             │
-│     ↓                                                   │
-│   WRITE (doc, ADR, blog post — forces clarity)          │
+│   WRITE (note, ADR, blog post — forces clarity)         │
 │     ↓                                                   │
 │   APPLY AT WORK (the real test)                         │
 │     ↓                                                   │
 │   "What decision would I make differently now?"         │
 │     └──────────────── if no answer → revisit phase ─────┘
-│
+│                                                         │
+│   (articles = optional side-lookup, never a step)       │
 └─────────────────────────────────────────────────────────┘
 ```
+
+**Why articles were demoted:** An 8-minute article gives you a completion signal without a learning signal. ~5% retention at 30 days vs ~60% for a book chapter you struggled through. The difficulty *is* the mechanism. Reading five articles feels like progress and produces nothing; reading one chapter feels like work and rewires how you design.
 
 ---
 
@@ -579,14 +652,16 @@ Read or build these **only when a work project demands it:**
 
 ## Rules to Protect Execution
 
-1. **One book at a time.** Never start book N+1 until book N's reading is done. The project can spill into the next phase's first week — but the *reading* must be complete before moving on.
-2. **One README build per phase max.** Resist scope creep. The book project is the priority.
+1. **One book at a time.** Never start book N+1 until book N's reading is done. The project can spill into the next phase — but the *reading* must be complete before moving on.
+2. **One README build per phase max — and it's optional.** The book project is the priority. Skipping the extra build costs you almost nothing.
 3. **30 min on a Tuesday night counts.** Consistency > intensity. Don't skip a day because you can't do 2 hours.
 4. **If you finish a phase and can't answer "what would I do differently at work?" — the phase didn't land.** Revisit before moving on.
-5. **It's a menu, not a checklist.** If a README section doesn't resonate during the phase, skip it. Come back later or never.
-6. **Writing is non-negotiable.** If you didn't write about it, you didn't learn it deeply enough for principal-level work.
-7. **A stalled project doesn't block reading within the current book.** If your build is stuck, keep reading the next chapters. Come back to the code with fresh context. See the escape hatch section for cross-phase stalls.
-8. **Review this plan quarterly.** Your priorities at work will shift. A topic in "On-Demand" might become urgent. A phase might become less relevant. Adjust — but don't abandon the structure.
+5. **It's a menu, not a checklist.** Nothing in this file is overdue. There is no "behind schedule."
+6. **Writing is non-negotiable.** If you didn't write about it, you didn't learn it deeply enough for principal-level work. One page is enough.
+7. **A stalled project doesn't block reading.** If your build is stuck, keep reading. Come back to the code with fresh context.
+8. **Review this plan quarterly — and only quarterly.** Opening it weekly creates anxiety, not progress. Next review: **January 2027.**
+9. **Articles are a lookup table, not a reading list.** Pull one when a book chapter confuses you. Never push through them sequentially. If you catch yourself reading articles because they feel like fast progress — that's the avoidance instinct, and the book is what you're avoiding.
+10. **When overwhelmed, collapse to one line:** *"Read DDIA for 30 minutes."* Everything else in this repo is future-you's problem.
 
 ---
 
