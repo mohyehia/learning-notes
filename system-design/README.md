@@ -212,6 +212,7 @@
 - [ ] [AMAZON: 1 Million Users Clicked Checkout At Once. The Real Problem Wasn’t Scaling.](https://levelup.gitconnected.com/amazon-1-million-users-clicked-checkout-at-once-the-real-problem-wasnt-scaling-f7956a102f9c)
 - [ ] [Gossip Protocol Explained: How Distributed Systems Spread Information](https://interviewnoodle.com/gossip-protocol-explained-how-distributed-systems-spread-information-2e58b93be28c)
 - [ ] [Time Series Databases and InfluxDB](https://dilipkumar.medium.com/time-series-databases-and-influxdb-2df5f5b06175)
+- [ ] [30+ Must-Read System Design Papers to Learn Software Architecture from Google, Amazon, and More](https://medium.com/javarevisited/30-must-read-system-design-papers-to-learn-software-architecture-from-google-amazon-and-more-90bd15e1ebe9)
 - [ ] **Build plan:** Pick one end-to-end system design problem per month and write a 1-page design + PoC
 
 #### Intermediate builds
