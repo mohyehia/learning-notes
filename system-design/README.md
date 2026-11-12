@@ -8,11 +8,11 @@
 ## P1 — Core (do first)
 
 ### 1. CAP Theorem
-- [ ] [CAP Theorem Explained (with Diagrams)](https://arslan-ahmad.medium.com/cap-theorem-explained-with-diagrams-57a591de4e91)
+- [x] [CAP Theorem Explained (with Diagrams)](https://arslan-ahmad.medium.com/cap-theorem-explained-with-diagrams-57a591de4e91)
 - [ ] [CAP Theorem Explained: Consistency, Availability, and Partition Tolerance in Distributed Systems](https://interviewnoodle.com/cap-theorem-explained-consistency-availability-and-partition-tolerance-in-distributed-systems-a630b3034834)
 
 ### 2. ACID Principles
-- [ ] [ACID Properties Explained: A Complete Guide with PostgreSQL Implementation](https://medium.com/@shivambhadani_/acid-properties-explained-a-complete-guide-with-postgresql-implementation-071afa6aaf8a)
+- [x] [ACID Properties Explained: A Complete Guide with PostgreSQL Implementation](https://medium.com/@shivambhadani_/acid-properties-explained-a-complete-guide-with-postgresql-implementation-071afa6aaf8a)
 - [ ] **Build project:** Build a bank-transfer service in Spring Boot that demonstrates rollback, optimistic locking, pessimistic locking, and transaction isolation anomalies
 
 ### 3. Message Queues & Event-Driven Architecture
