@@ -13,6 +13,7 @@
 
 ### 2. ACID Principles
 - [x] [ACID Properties Explained: A Complete Guide with PostgreSQL Implementation](https://medium.com/@shivambhadani_/acid-properties-explained-a-complete-guide-with-postgresql-implementation-071afa6aaf8a)
+- [x] [ACID Transactions](https://algomaster.io/learn/system-design/acid-transactions)
 - [ ] **Build project:** Build a bank-transfer service in Spring Boot that demonstrates rollback, optimistic locking, pessimistic locking, and transaction isolation anomalies
 
 ### 3. Message Queues & Event-Driven Architecture
